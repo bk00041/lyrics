@@ -1,4 +1,4 @@
-Generate single html page with all css and javascript code embedded. Use the following file as a template:
+Generate single html page with all css and javascript code embedded. Use the following file as a template: https://github.com/bk00041/lyrics/blob/main/Karol%20G%20-%20Gatubela.html
 
 I want the page to contain the lyrics of the provided song. 
 
