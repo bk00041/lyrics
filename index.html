@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gatúbela - Karol G ft. Maldy (Lyrics & Meaning)</title>
+  <title>Lyrics Directory</title>
   <style>
     :root {
       --bg-color: #0d0f12;
@@ -12,9 +12,8 @@
       --accent-hover: #ff537c;
       --text-main: #f0f3f8;
       --text-sub: #9da7b8;
-      --info-bg: #1c2230;
-      --info-border: #3b82f6;
-      --info-text: #dbeafe;
+      --border-color: #222836;
+      --row-hover: #1c2230;
     }
 
     * {
@@ -40,7 +39,7 @@
       text-align: center;
       margin-bottom: 30px;
       padding-bottom: 20px;
-      border-bottom: 1px solid #232936;
+      border-bottom: 1px solid var(--border-color);
     }
 
     h1 {
@@ -55,101 +54,70 @@
       font-size: 1rem;
     }
 
-    .instruction {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-sub);
-      margin-bottom: 25px;
-      background: rgba(255, 42, 95, 0.1);
-      padding: 8px 12px;
-      border-radius: 20px;
-      display: inline-block;
-      width: 100%;
-    }
-
-    .verse-block {
+    .table-container {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 18px;
-      margin-bottom: 20px;
-      border: 1px solid #222836;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      overflow-x: auto;
     }
 
-    .section-title {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      padding: 12px 16px;
       color: var(--accent-color);
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 12px;
       font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid var(--border-color);
+      transition: color 0.2s;
     }
 
-    .line-pair {
-      margin-bottom: 14px;
+    th:hover {
+      color: var(--accent-hover);
     }
 
-    .line-pair:last-child {
-      margin-bottom: 0;
+    th .sort-icon {
+      font-size: 0.75rem;
+      margin-left: 4px;
+      display: inline-block;
+      color: var(--text-sub);
     }
 
-    .es-line {
+    td {
+      padding: 14px 16px;
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tbody tr {
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background-color: var(--row-hover);
+    }
+
+    .artist-col {
       font-weight: 600;
-      font-size: 1.05rem;
       color: var(--text-main);
     }
 
-    .en-line {
-      font-size: 0.95rem;
+    .song-col {
       color: var(--text-sub);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 2px;
-    }
-
-    .info-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2px;
-      border-radius: 50%;
-      color: #3b82f6;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .info-btn:hover {
-      color: #60a5fa;
-      transform: scale(1.15);
-    }
-
-    .info-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-    }
-
-    .explanation-box {
-      display: none;
-      background-color: var(--info-bg);
-      border-left: 3px solid var(--info-border);
-      color: var(--info-text);
-      font-size: 0.88rem;
-      padding: 10px 14px;
-      margin-top: 8px;
-      border-radius: 0 8px 8px 0;
-      animation: fadeIn 0.25s ease-in-out;
-    }
-
-    .explanation-box.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -157,185 +125,92 @@
 
   <div class="container">
     <header>
-      <h1>Gatúbela</h1>
-      <p class="subtitle">KAROL G ft. Maldy</p>
+      <h1>Lyrics Library</h1>
+      <p class="subtitle">Select a song to view lyrics and translations</p>
     </header>
 
-    <div class="instruction">
-      💡 Tap the blue ℹ️ icon next to lines for slang and cultural explanations.
+    <div class="table-container">
+      <table id="lyrics-table">
+        <thead>
+          <tr>
+            <th onclick="sortTable('artist')">Artist <span id="sort-artist" class="sort-icon">↕</span></th>
+            <th onclick="sortTable('song')">Song <span id="sort-song" class="sort-icon">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Rows dynamically rendered via JS -->
+        </tbody>
+      </table>
     </div>
-
-    <!-- Intro / Refrain -->
-    <div class="verse-block">
-      <div class="section-title">Intro</div>
-      
-      <div class="line-pair">
-        <div class="es-line">Estaba loca por probarte, darte los besitos yo</div>
-        <div class="en-line">I was dying to try you, give you those little kisses myself</div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Ojalá puedas quedarte, porque así me quedo yo</div>
-        <div class="en-line">I hope you can stay, because that way I'll stay too</div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Estaba loca por casarte, hacértelo rico yo</div>
-        <div class="en-line">
-          I was dying to hunt you down, make it feel good for you
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Cultural Note:</strong> "Casarte" here is slang play-on-words derived from <em>cazar</em> (to hunt) rather than <em>casar</em> (to marry). She is playfully framing herself as the predator/feline hunting her target.
-        </div>
-      </div>
-    </div>
-
-    <!-- Verse 1: Karol G -->
-    <div class="verse-block">
-      <div class="section-title">Verse 1 (Karol G)</div>
-
-      <div class="line-pair">
-        <div class="es-line">Yo no ando con nadie, pero me tienen velá</div>
-        <div class="en-line">
-          I'm not with anyone, but they're keeping a close eye on me
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Slang Breakdown:</strong> "Me tienen velá" comes from Colombian/Caribbean slang meaning to be constantly watched, stalked, or closely monitored by suitors or paparazzi.
-        </div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Ya 'toy elevada, me siento Gatúbela</div>
-        <div class="en-line">
-          I'm high up now, I feel like Catwoman
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Title Reference:</strong> "Gatúbela" is the official Spanish name for DC Comics' Catwoman. Karol G uses this persona to represent female empowerment, sexual liberation, and predatory dominance.
-        </div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Esto es una foto porque yo no 'toy pintá</div>
-        <div class="en-line">
-          This is real, I'm not just posing
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Phrase Meaning:</strong> "No estar pintado/a" literally means "not painted." Idiomatically, it means "I'm not a fake or a decoration—I'm the real deal."
-        </div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Y ese huerfanito necesita una mamá</div>
-        <div class="en-line">And that little orphan needs a mommy</div>
-      </div>
-    </div>
-
-    <!-- Chorus -->
-    <div class="verse-block">
-      <div class="section-title">Chorus</div>
-
-      <div class="line-pair">
-        <div class="es-line">¡Ay, qué rico! Cuando me pone el panty de ladito</div>
-        <div class="en-line">Oh, so good! When you pull my panties to the side</div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">¡Ay, qué rico! Ese besito dámelo abajito</div>
-        <div class="en-line">Oh, so good! Give me that little kiss down low</div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">¡Ay, bendito! En cuatro yo te pongo rapidito</div>
-        <div class="en-line">Oh, my goodness! I'll have you on all fours in no time</div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Mmm, bendito, no me coma' tan rico, papacito</div>
-        <div class="en-line">Mmm, lord have mercy, don't eat me up so good, daddy</div>
-      </div>
-    </div>
-
-    <!-- Verse 2: Maldy -->
-    <div class="verse-block">
-      <div class="section-title">Verse 2 (Maldy)</div>
-
-      <div class="line-pair">
-        <div class="es-line">Uff, qué chimba un verso de Maldy</div>
-        <div class="en-line">
-          Uff, how cool a verse from Maldy is
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Colombian Slang:</strong> "Qué chimba" is signature Medellin slang meaning "how awesome" or "how cool."
-        </div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Sin Maldy no hay perreo</div>
-        <div class="en-line">
-          Without Maldy there's no perreo
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Genre Context:</strong> "Perreo" refers to old-school, raw, danceable reggaeton rhythm and party culture. Maldy (formerly of Plan B) is considered a legend of early 2000s perreo.
-        </div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Bellaqueo es lo que quiere, bellaqueo es lo que exige</div>
-        <div class="en-line">
-          Dirty dancing is what she wants, dirty dancing is what she demands
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Puerto Rican Term:</strong> "Bellaqueo" refers explicitly to provocative grinding, flirting, or intense physical passion on the dance floor.
-        </div>
-      </div>
-
-      <div class="line-pair">
-        <div class="es-line">Te quiero dar mazacote pa' que esas nalgas reboten</div>
-        <div class="en-line">
-          I want to hit you hard so those cheeks bounce
-          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          </button>
-        </div>
-        <div class="explanation-box">
-          <strong>Reggaeton Slang:</strong> "Mazacote" literally refers to a dense mass or mixture, but in old-school urban slang, it means heavy beats, intense rhythms, or aggressive sexual energy.
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <script>
-    function toggleNote(btn) {
-      // Find the explanation box within the parent line-pair container
-      const linePair = btn.closest('.line-pair');
-      const box = linePair.querySelector('.explanation-box');
-      
-      if (box) {
-        box.classList.toggle('active');
+    // ========================================================
+    // SONG DATABASE (JSON)
+    // Add new songs here. Ensure "path" is relative to this file.
+    // ========================================================
+    const songsData = [
+      {
+        "artist": "Karol G",
+        "song": "Gatúbela",
+        "path": "Karol G - Gatubela.html"
       }
+    ];
+
+    let currentSortColumn = null;
+    let isAscending = true;
+
+    function renderTable(data) {
+      const tbody = document.getElementById('table-body');
+      tbody.innerHTML = '';
+
+      data.forEach(item => {
+        const tr = document.createElement('tr');
+        
+        // Tap/click row to navigate to file
+        tr.onclick = () => {
+          window.location.href = item.path;
+        };
+
+        tr.innerHTML = `
+          <td class="artist-col">${item.artist}</td>
+          <td class="song-col">${item.song}</td>
+        `;
+
+        tbody.appendChild(tr);
+      });
     }
+
+    function sortTable(column) {
+      if (currentSortColumn === column) {
+        isAscending = !isAscending;
+      } else {
+        currentSortColumn = column;
+        isAscending = true;
+      }
+
+      // Update sort indicators
+      document.getElementById('sort-artist').textContent = '↕';
+      document.getElementById('sort-song').textContent = '↕';
+      document.getElementById(`sort-${column}`).textContent = isAscending ? '▲' : '▼';
+
+      // Sort JSON data
+      songsData.sort((a, b) => {
+        const valA = a[column].toLowerCase();
+        const valB = b[column].toLowerCase();
+
+        if (valA < valB) return isAscending ? -1 : 1;
+        if (valA > valB) return isAscending ? 1 : -1;
+        return 0;
+      });
+
+      renderTable(songsData);
+    }
+
+    // Initial render on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTable(songsData);
+    });
   </script>
 </body>
 </html>
