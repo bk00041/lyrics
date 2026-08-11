@@ -1,301 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisin - Vacaciones (Lyrics & Meaning)</title>
-    <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --text-primary: #c9d1d9;
-            --text-secondary: #8b949e;
-            --accent-color: #f39c12;
-            --accent-hover: #d68910;
-            --translation-color: #58a6ff;
-            --explanation-bg: #21262d;
-            --explanation-border: #f39c12;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vacaciones - Wisin (Lyrics & Meaning)</title>
+  <style>
+    :root {
+      --bg-color: #0d0f12;
+      --card-bg: #161a22;
+      --accent-color: #ff2a5f;
+      --accent-hover: #ff537c;
+      --text-main: #f0f3f8;
+      --text-sub: #9da7b8;
+      --info-bg: #1c2230;
+      --info-border: #3b82f6;
+      --info-text: #dbeafe;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .container {
-            max-width: 750px;
-            width: 100%;
-            margin-bottom: 50px;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 20px 15px 60px;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px 0 30px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-        }
+    .container {
+      max-width: 650px;
+      margin: 0 auto;
+    }
 
-        h1 {
-            color: #ffffff;
-            margin: 0 0 8px 0;
-            font-size: 2rem;
-        }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #232936;
+    }
 
-        .artist {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin: 0;
-            font-weight: 600;
-        }
+    h1 {
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 5px;
+      letter-spacing: -0.5px;
+    }
 
-        .section-title {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-secondary);
-            margin: 25px 0 15px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 5px;
-        }
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 1rem;
+    }
 
-        .lyric-line {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 14px 18px;
-            margin-bottom: 12px;
-            transition: border-color 0.2s ease;
-        }
+    .instruction {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-bottom: 25px;
+      background: rgba(255, 42, 95, 0.1);
+      padding: 8px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      width: 100%;
+    }
 
-        .lyric-line:hover {
-            border-color: #484f58;
-        }
+    .verse-block {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      border: 1px solid #222836;
+    }
 
-        .original {
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
+    .section-title {
+      color: var(--accent-color);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
 
-        .translation-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-        }
+    .line-pair {
+      margin-bottom: 14px;
+    }
 
-        .translation {
-            color: var(--translation-color);
-            font-size: 0.95rem;
-            margin: 0;
-        }
+    .line-pair:last-child {
+      margin-bottom: 0;
+    }
 
-        .info-btn {
-            background: none;
-            border: none;
-            color: var(--accent-color);
-            cursor: pointer;
-            padding: 4px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-            flex-shrink: 0;
-        }
+    .es-line {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
 
-        .info-btn:hover {
-            background-color: rgba(243, 156, 18, 0.15);
-            transform: scale(1.15);
-        }
+    .en-line {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+    }
 
-        .info-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
+    .info-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      border-radius: 50%;
+      color: #3b82f6;
+      transition: transform 0.2s, color 0.2s;
+    }
 
-        .explanation {
-            display: none;
-            margin-top: 12px;
-            padding: 12px 15px;
-            background-color: var(--explanation-bg);
-            border-left: 3px solid var(--explanation-border);
-            border-radius: 4px;
-            font-size: 0.88rem;
-            color: var(--text-primary);
-            line-height: 1.5;
-        }
+    .info-btn:hover {
+      color: #60a5fa;
+      transform: scale(1.15);
+    }
 
-        .explanation.active {
-            display: block;
-            animation: fadeIn 0.25s ease-in-out;
-        }
+    .info-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    .explanation-box {
+      display: none;
+      background-color: var(--info-bg);
+      border-left: 3px solid var(--info-border);
+      color: var(--info-text);
+      font-size: 0.88rem;
+      padding: 10px 14px;
+      margin-top: 8px;
+      border-radius: 0 8px 8px 0;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    .explanation-box.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
     <header>
-        <h1>Vacaciones</h1>
-        <p class="artist">Wisin</p>
+      <h1>Vacaciones</h1>
+      <p class="subtitle">Wisin</p>
     </header>
 
-    <div class="section-title">Chorus</div>
-
-    <!-- Line 1 -->
-    <div class="lyric-line">
-        <div class="original">Yo no necesito vacaciones</div>
-        <div class="translation-container">
-            <p class="translation">I don't need vacations</p>
-        </div>
+    <div class="instruction">
+      💡 Tap the blue ℹ️ icon next to lines for slang and cultural explanations.
     </div>
 
-    <!-- Line 2 -->
-    <div class="lyric-line">
-        <div class="original">Ni dolores de cabeza</div>
-        <div class="translation-container">
-            <p class="translation">Nor headaches</p>
+    <!-- INTRO -->
+    <div class="verse-block">
+      <div class="section-title">Intro</div>
+      
+      <div class="line-pair">
+        <div class="es-line">Me pareció ver una linda gatita, doblete</div>
+        <div class="en-line">
+          I thought I saw a cute kitten, Doblete
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
         </div>
+        <div class="explanation-box">
+          <strong>Slang & Reference:</strong> "Gatita" (literally "kitty") is Urban Spanish slang for an attractive girl. "Doblete" (W) is Wisin's signature nickname. The opening line playfulness references the classic Looney Tunes Sylvester catchphrase.
+        </div>
+      </div>
     </div>
 
-    <!-- Line 3 -->
-    <div class="lyric-line">
-        <div class="original">Solo me bastan mis amigos</div>
-        <div class="translation-container">
-            <p class="translation">My friends are enough for me</p>
-            <button class="info-btn" aria-label="More information" onclick="toggleExplanation(this)">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </button>
+    <!-- VERSE 1 -->
+    <div class="verse-block">
+      <div class="section-title">Verse 1</div>
+
+      <div class="line-pair">
+        <div class="es-line">Me desperté, en la sala de una casa ajena</div>
+        <div class="en-line">I woke up in the living room of someone else's house</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Y tropecé, con dos tacones y cuatro botellas</div>
+        <div class="en-line">And I stumbled over two high heels and four bottles</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Voy recordando, la cosa sí que estuvo buena</div>
+        <div class="en-line">I'm remembering now, things really were good</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Y me encontré, en el sofá con un par de morenas</div>
+        <div class="en-line">
+          And I found myself on the couch with a couple of brunettes
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
         </div>
-        <div class="explanation">
-            The phrase "me basta" means "is enough for me" or "suffices." Wisin uses this line to anchor the central theme of the song: true escapism isn't about expensive trips, but about living in the moment with your close circle (<i>el combo</i>).
+        <div class="explanation-box">
+          <strong>Cultural Note:</strong> "Morena" in Spanish can refer to women with dark hair, tan skin, or brown/black complexions depending on regional context.
         </div>
+      </div>
     </div>
 
-    <!-- Line 4 -->
-    <div class="lyric-line">
-        <div class="original">Y un traguito de cerveza</div>
-        <div class="translation-container">
-            <p class="translation">And a little sip of beer</p>
-            <button class="info-btn" aria-label="More information" onclick="toggleExplanation(this)">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </button>
+    <!-- PRE-CHORUS -->
+    <div class="verse-block">
+      <div class="section-title">Pre-Chorus</div>
+
+      <div class="line-pair">
+        <div class="es-line">Pa' qué seguir trabajando, yo sigo celebrando</div>
+        <div class="en-line">
+          Why keep working? I'll keep celebrating
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
         </div>
-        <div class="explanation">
-            "Traguito" is the diminutive form of "trago" (drink/sip). Diminutives are frequently used in Spanish to show affection, relaxedness, or informality—here making the idea of having a quick drink sound casual and pleasant.
+        <div class="explanation-box">
+          <strong>Grammar Note:</strong> "Pa'" is a standard spoken contraction of "Para" in casual Spanish.
         </div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Así la vida se vive mejor</div>
+        <div class="en-line">Life is lived better this way</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Anoche fue una locura, mañana es otra aventura</div>
+        <div class="en-line">Last night was crazy, tomorrow is another adventure</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Quizás pasado me olvide de hoy</div>
+        <div class="en-line">
+          Maybe the day after tomorrow I'll forget about today
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
+        </div>
+        <div class="explanation-box">
+          <strong>Vocabulary:</strong> "Pasado" here is short for "pasado mañana" (the day after tomorrow).
+        </div>
+      </div>
     </div>
 
-    <!-- Line 5 -->
-    <div class="lyric-line">
-        <div class="original">Para calmar el estrés, estrés, estrés</div>
-        <div class="translation-container">
-            <p class="translation">To calm down the stress, stress, stress</p>
+    <!-- CHORUS -->
+    <div class="verse-block">
+      <div class="section-title">Chorus</div>
+
+      <div class="line-pair">
+        <div class="es-line">Yo no necesito vacaciones, ni dolores de cabeza</div>
+        <div class="en-line">I don't need vacations, nor headaches</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Solo me basta mis amigos y un traguito de cerveza</div>
+        <div class="en-line">
+          All I need is my friends and a sip of beer
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
         </div>
+        <div class="explanation-box">
+          <strong>Diminutive Breakdown:</strong> "Traguito" is the affectionate diminutive of "trago" (drink/sip).
+        </div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Solo quiero que me avisen si esta noche hay una fiesta</div>
+        <div class="en-line">I just want them to let me know if there's a party tonight</div>
+      </div>
     </div>
 
-    <!-- Line 6 -->
-    <div class="lyric-line">
-        <div class="original">Que la vida es una sola</div>
-        <div class="translation-container">
-            <p class="translation">Because you only live once</p>
-            <button class="info-btn" aria-label="More information" onclick="toggleExplanation(this)">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </button>
+    <!-- HOOK -->
+    <div class="verse-block">
+      <div class="section-title">Hook</div>
+
+      <div class="line-pair">
+        <div class="es-line">Lelolelola y sudando</div>
+        <div class="en-line">Lelolelola and sweating</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Lelolelola y guayando</div>
+        <div class="en-line">
+          Lelolelola and dancing close
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
         </div>
-        <div class="explanation">
-            Literally translating to "Because life is only one," this is the classic Spanish expression equivalent to the English idiom YOLO ("You Only Live Once"). It emphasizes seizing the day before time passes.
+        <div class="explanation-box">
+          <strong>Reggaeton Slang:</strong> "Guayando" comes from "guayar" (literally to grate/rub against). In Caribbean urban music, it means grinding or dancing very close body-to-body. "Lelolelo" borrows from traditional Puerto Rican folk ad-libs (jíbaro music).
         </div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Lelolelola y perreando</div>
+        <div class="en-line">
+          Lelolelola and perreando
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
+        </div>
+        <div class="explanation-box">
+          <strong>Dance Culture:</strong> "Perreando" refers to "perreo," the signature low-squatting grinding dance style intrinsic to classic Reggaeton.
+        </div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Lelolelola y vacilando</div>
+        <div class="en-line">
+          Lelolelola and having fun
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
+        </div>
+        <div class="explanation-box">
+          <strong>Slang Breakdown:</strong> "Vacilando" comes from "vacilar," meaning to party, fool around, joke, or enjoy life without taking things seriously.
+        </div>
+      </div>
     </div>
 
-    <!-- Line 7 -->
-    <div class="lyric-line">
-        <div class="original">Y hay que vivirla al derecho y al revés</div>
-        <div class="translation-container">
-            <p class="translation">And you have to live it right side up and upside down</p>
-            <button class="info-btn" aria-label="More information" onclick="toggleExplanation(this)">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </button>
+    <!-- VERSE 2 -->
+    <div class="verse-block">
+      <div class="section-title">Verse 2</div>
+
+      <div class="line-pair">
+        <div class="es-line">Me levanté de la cama y la rumba me llama</div>
+        <div class="en-line">I got out of bed and the party is calling me</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">24/7 en busca de una dama</div>
+        <div class="en-line">24/7 looking for a lady</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Se me olvida la fama y el trago se derrama</div>
+        <div class="en-line">I forget about fame and the drink spills</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Y sigo guayando y bailando hasta que los pies se me inflaman</div>
+        <div class="en-line">And I keep grinding and dancing until my feet swell up</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Yo sé que tú quieres, yo también quiero</div>
+        <div class="en-line">I know you want to, I want to as well</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">No pongo pero, pero quiero ser el primero</div>
+        <div class="en-line">I make no excuses, but I want to be first</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Si me pides un beso lo exagero</div>
+        <div class="en-line">If you ask me for a kiss I'll blow it out of proportion</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Tú sabes el vaquero, el que anda con la cubana y el sombrero</div>
+        <div class="en-line">
+          You know the cowboy, the one with the Cuban link chain and the hat
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
         </div>
-        <div class="explanation">
-            "Al derecho y al revés" is an idiom meaning inside-out, backward and forward, or from every possible angle. It means experiencing life to its fullest extent without holding back.
+        <div class="explanation-box">
+          <strong>Cultural Context:</strong> "La cubana" refers to a heavy Cuban-link gold chain necklace, a staple accessory in urban/reggaeton fashion.
         </div>
+      </div>
     </div>
 
-    <div class="section-title">Verse 1</div>
+    <!-- VERSE 3 -->
+    <div class="verse-block">
+      <div class="section-title">Verse 3</div>
 
-    <!-- Line 8 -->
-    <div class="lyric-line">
-        <div class="original">Llegó el fin de semana, la gente se lo goza</div>
-        <div class="translation-container">
-            <p class="translation">The weekend arrived, people are enjoying it</p>
+      <div class="line-pair">
+        <div class="es-line">Rumba, vacilón y tequila, mi combo hace fila</div>
+        <div class="en-line">
+          Party, good times and tequila, my crew lines up
+          <button class="info-btn" onclick="toggleNote(this)" aria-label="Explanation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
         </div>
+        <div class="explanation-box">
+          <strong>Slang Breakdown:</strong> "Combo" refers to your inner group, squad, or crew of friends.
+        </div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Baby, usted anda conmigo así que tranquila</div>
+        <div class="en-line">Baby, you're with me so don't worry</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">A mí me fascina cómo conmigo vacila</div>
+        <div class="en-line">I love how she hangs out and parties with me</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Me mata tu cuerpo y cómo completa depilas</div>
+        <div class="en-line">Your body kills me and how completely smooth you are</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Esta es una fiesta latina, todo el mundo pa' la piscina</div>
+        <div class="en-line">This is a Latin party, everyone into the pool</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Invita a tus amigas que esto nunca termina</div>
+        <div class="en-line">Invite your friends because this never ends</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Vámonos para la esquina, mami te ves divina</div>
+        <div class="en-line">Let's head over to the corner, babe you look divine</div>
+      </div>
+
+      <div class="line-pair">
+        <div class="es-line">Me fascina, baby enséñame la rutina</div>
+        <div class="en-line">I love it, baby show me the routine</div>
+      </div>
     </div>
 
-    <!-- Line 9 -->
-    <div class="lyric-line">
-        <div class="original">No te quede' en la casa que la cosa está sabrosa</div>
-        <div class="translation-container">
-            <p class="translation">Don't stay home, things are getting good</p>
-            <button class="info-btn" aria-label="More information" onclick="toggleExplanation(this)">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </button>
-        </div>
-        <div class="explanation">
-            Notice the dropped 's' in "quede'" (from <i>quedes</i>), typical of Caribbean Spanish phonetics (Puerto Rico). "La cosa está sabrosa" literally means "the thing is tasty," but colloquially means the atmosphere or party vibe is great.
-        </div>
-    </div>
+  </div>
 
-    <!-- Line 10 -->
-    <div class="lyric-line">
-        <div class="original">Prende el motor, pon la música a volar</div>
-        <div class="translation-container">
-            <p class="translation">Start the engine, crank the music up</p>
-        </div>
-    </div>
-
-    <!-- Line 11 -->
-    <div class="lyric-line">
-        <div class="original">Que hoy se bebe y hoy se baila hasta el final</div>
-        <div class="translation-container">
-            <p class="translation">Because tonight we drink and tonight we dance until the end</p>
-            <button class="info-btn" aria-label="More information" onclick="toggleExplanation(this)">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </button>
-        </div>
-        <div class="explanation">
-            Uses the impersonal "se" structure ("hoy se bebe" = "today drinking happens / we drink"). This construction is widely used in Latin urban music to state a collective expectation or party rule for the night.
-        </div>
-    </div>
-
-</div>
-
-<script>
-    function toggleExplanation(buttonElement) {
-        // Find the parent .lyric-line element
-        const lyricLine = buttonElement.closest('.lyric-line');
-        // Find the explanation div within this line
-        const explanation = lyricLine.querySelector('.explanation');
-        
-        if (explanation) {
-            explanation.classList.toggle('active');
-        }
+  <script>
+    function toggleNote(btn) {
+      const linePair = btn.closest('.line-pair');
+      const box = linePair.querySelector('.explanation-box');
+      
+      if (box) {
+        box.classList.toggle('active');
+      }
     }
-</script>
-
+  </script>
 </body>
 </html>
