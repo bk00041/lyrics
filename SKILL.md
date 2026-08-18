@@ -1,9 +1,17 @@
-name: bilingual-lyrics-breakdown
-description: Formats bilingual song lyrics with line-by-line translations and interactive slang/cultural explanation boxes using a dark-mode mobile-first layout.
-instructions: |
-  When requested to generate a lyrics translation page or break down a song for language learning, output a complete, standalone HTML document following this exact template, structure, and styling.
+# Skill details
 
-  ### Design & Layout Specifications
+### name 
+bilingual-lyrics-breakdown
+
+### description
+Formats bilingual song lyrics with line-by-line translations and interactive slang/cultural explanation boxes using a dark-mode mobile-first layout.
+
+# instructions
+Take the provided lyrics and translate the whole song. Even the parts that repeat, include them multiple times with the same translation so that the user can follow the lyrics with the song. 
+
+When requested to generate a lyrics translation page or break down a song for language learning, output a complete, standalone HTML document following this exact template, structure, and styling.
+
+### Design & Layout Specifications
   1. Palette: Dark mode by default using CSS root variables.
      - `--bg-color: #0d0f12`
      - `--card-bg: #161a22`
@@ -26,7 +34,7 @@ instructions: |
   3. JavaScript:
      - Include the light toggle script `toggleNote(btn)` that targets the nearest `.line-pair` and toggles the `.active` class on `.explanation-box`.
 
-  ### HTML Template Structure
+### HTML Template Structure
 
   ```html
   <!DOCTYPE html>
